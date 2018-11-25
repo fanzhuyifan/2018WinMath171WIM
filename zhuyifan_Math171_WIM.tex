@@ -16,7 +16,7 @@
 \usepackage[noabbrev]{cleveref}
 \crefname{subsection}{subsection}{subsections}
 
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -25,7 +25,7 @@
 \newtheorem{definition}{Definition}[section]
 
 \theoremstyle{remark}
-\newtheorem{remark}{Remark}
+\newtheorem*{remark}{Remark}
 
 
 \begin{document}
@@ -54,6 +54,66 @@ If we forget about convergence and divergence for a moment and let $s$ take on t
 <To be completed>
 
 \section{Topological Proof}
+Let us now examine the topological proof of the infinitude of primes given by Hillel Furstenberg.
+First we define the \textbf{evenly spaced integer topology} on the integers:
+\begin{lemma}
+  Call a set $O\subset\mathbb{Z}$ open if for all $a\in O$ there exists some $b\in\mathbb{Z^+}$ with $S(a,b)\subset O$, where $S(a,b)$ is the two-way infinite arithmetic sequence $\left\{ a+nb:n\in\mathbb{Z} \right\}$. Then the collection of open sets $\tau$ forms a topology on the integers $Z$.
+  \label{lem:esip}
+\end{lemma}
+\begin{remark}
+  This topology is called the \textbf{evenly spaced integer topology}.
+  \label{rem:esip}
+\end{remark}
+\begin{proof}
+  From that definition of topology, we need to check that
+  \begin{enumerate}
+    \item Both the empty set and $Z$ are open;
+
+      Clearly, the empty set is open since the definition for openness is vacuously true. $\mathbb{Z}$ is also open since for all $a\in\mathbb{Z}$, $S(a,1)=\mathbb{Z}\subset\mathbb{Z}$.
+    \item Any union of open sets is open;
+
+      For any union of open sets $O=\bigcup\limits_i O_i$, for all $a\in O$, $a\in O_i$ for some $i$. Since $O_i$ is open, there exists $b\in\mathbb{Z^+}$ with $S(a,b)\subset O_i$. So $S(a,b)\subset O$. Thus, $O$ is also open.
+    \item If $O_1$ and $O_2$ are open, then $O_1\cap O_2$ is also open.
+
+      For any $a\in O_1\cap O_2$, we can find $b_1,b_2\in\mathbb{Z^+}$ with $S(a,b_1)\subset O_1$ and $S(a,b_2)\subset O_2$. Then $S(a,b_1b_2)\subset O_1\cap O_2$. Thus $O_1\cap O_2$ is open.
+
+  \end{enumerate}
+  Hence, $\tau$ defines a topology on $\mathbb{Z}$.
+\end{proof}
+
+The \textbf{evenly spaced integer topology} has two interesting properties that we will need:
+\begin{lemma}
+  In the \textbf{evenly spaced integer topology} $\tau$,
+  \begin{enumerate}
+    \item Any non-empty open set is infinite.
+    \item Any of the basis sets $S(a,b)$ is also closed.
+  \end{enumerate}
+  \label{lem:2prop}
+\end{lemma}
+\begin{proof}
+  Both of these properties easily follow from the definition:
+  \begin{enumerate}
+    \item If the open set $O$ is not empty, we can find $a\in O$. Thus we can find $S(a,b)\subset O$, so $O$ is infinite.
+    \item Note that $\displaystyle S(a,b)=\mathbb{Z}\setminus \bigcup\limits_{i=1}^{b-1}S(a+i,b)$, so $S(a,b)$ is closed as well as open.
+  \end{enumerate}
+\end{proof}
+With these two properties, we are ready to prove that there are infinitely many primes:
+\begin{theorem}
+  In the \textbf{evenly spaced integer topology}, $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ cannot be closed. But if the primes are finite, then $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ is closed. Thus, there are infinitely many primes.
+  \label{thm:topPrimes}
+\end{theorem}
+\begin{proof}
+  Since $\left\{ -1,+1 \right\}$ is finite, we know from the first property of \cref{lem:2prop} that it cannot be open. Thus, $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ cannot be closed.
+
+  Since $-1$ and $+1$ are the only integers that are not multiples of primes,
+  \[
+  \mathbb{Z}\setminus\left\{ -1,+1 \right\}=\bigcup\limits_{p\text{ prime}}S(0,p)
+  .
+  \]
+  If the primes are finite, then from the second property of \cref{lem:2prop} we know that the right hand side is the finite union of closed sets, so it is also closed. Thus, $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ is closed.
+
+  Therefore, we would reach a contradiction if there were only finitely many primes. Hence, the primes are infinite.
+\end{proof}<++>
 
 \section{Analytical Proofs}<++>
 
