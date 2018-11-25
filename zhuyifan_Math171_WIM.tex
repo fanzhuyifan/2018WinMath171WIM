@@ -40,10 +40,31 @@ Yifan Zhu
 \end{abstract}<++>
 
 \section{Introduction}
+Humans' study of math really began with natural numbers --- the need to count was universal. With the study of natural numbers, the field of number theory naturally emerged. Central to this field is the study of primes. Among their many interesting properties, the most well known is probably their infinitude. This result dates back thousands of years --- around 300BC, Euclid proved in \textit{Elements} that there are infinitely many primes. \cite{bib:mathHistory} Since then, mathematicians have given many different proofs. In this paper, we will examine Hillel Furstenberg's topological proof and a series of analytical proofs dating back to Euler.
 
+Hillel Furstenberg's topological proof stands out for being, well, \textbf{topological}. You might be tempted to ask, {WHAT ON EARTH DO PRIMES HAVE TO DO WITH TOPOLOGY?} As we will see later, Furstenberg made this remarkable connection (as an undergrad at Yeshiva University) by defining the \textbf{evenly spaced integer topology} on the set of integers, where the open sets are unions of arithmetic sequences. In light of this, his proof is more about certain properties of arithmetic sequences than about topology. \cite{bib:proofsFromTheBook} \cite{bib:Furstenberg}
+
+The analytical proofs center on the Euler product formula,
+\[
+\sum^\infty_{n=1}\frac{1}{n^s}=\prod_{p\text{ prime}}\frac{1}{1-p^{-s}}
+.
+\]
+If we forget about convergence and divergence for a moment and let $s$ take on the value $1$, then this formula establishes a relationship between the sum of the reciprocals of natural numbers and the sum of the reciprocals of primes. Using this, Euler proved (not very rigorously) that the sum of the reciprocals of the primes less than $n$ grows approximately as fast as $\ln\ln n$ as $n$ approaches infinity.
+
+<To be completed>
+
+\section{Topological Proof}
+
+\section{Analytical Proofs}<++>
 
 \begin{thebibliography}{12}
   \bibitem{<+bibkey+>} <++>
     \textit{Title}, Author, Place: Publisher Year
+  \bibitem{bib:mathHistory}
+    \textit{Mathematics and Its History}, Stillwell, Springer (2010)
+  \bibitem{bib:proofsFromTheBook}
+    \textit{Proofs from The Book}, Aigner, Ziegler, Springer-Verlag (1998)
+  \bibitem{bib:Furstenberg}
+    \textit{On the Infinitude of primes}, Furstenberg, American Mathematical Monthly (1955) 62 (5): 353
 \end{thebibliography}<++>
 \end{document}
