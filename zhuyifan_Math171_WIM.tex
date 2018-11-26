@@ -40,7 +40,7 @@ Yifan Zhu
 \end{abstract}<++>
 
 \section{Introduction}
-Humans' study of math really began with natural numbers --- the need to count was universal. With the study of natural numbers, the field of number theory naturally emerged. Central to this field is the study of primes. Among their many interesting properties, the most well known is probably their infinitude. This result dates back thousands of years --- around 300BC, Euclid proved in \textit{Elements} that there are infinitely many primes. \cite{bib:mathHistory} Since then, mathematicians have given many different proofs. In this paper, we will examine Hillel Furstenberg's topological proof and a series of analytical proofs dating back to Euler.
+Humans' study of math really began with natural numbers --- the need to count was universal. With the study of natural numbers, the field of number theory naturally emerged. Central to this field is the study of primes. Among their many interesting properties, the most well known is probably their infinitude. This result dates back thousands of years --- around 300BC, Euclid proved in \textit{Elements} that there are infinitely many primes. \cite{bib:mathHistory} Since then, mathematicians have given many different proofs. In this paper, we will examine Hillel Furstenberg's topological proof in \cref{sec:topological} and a series of analytical proofs dating back to Euler in \cref{sec:analytical}.
 
 Hillel Furstenberg's topological proof stands out for being, well, \textbf{topological}. You might be tempted to ask, {WHAT ON EARTH DO PRIMES HAVE TO DO WITH TOPOLOGY?} As we will see later, Furstenberg made this remarkable connection (as an undergrad at Yeshiva University) by defining the \textbf{evenly spaced integer topology} on the set of integers, where the open sets are unions of arithmetic sequences. In light of this, his proof is more about certain properties of arithmetic sequences than about topology. \cite{bib:proofsFromTheBook} \cite{bib:Furstenberg}
 
@@ -51,8 +51,9 @@ The analytical proofs center on the Euler product formula,
 \]
 If we forget about convergence and divergence for a moment and let $s$ take on the value $1$, then this formula establishes a relationship between the sum of the reciprocals of natural numbers and the sum of the reciprocals of primes. Using this, Euler proved (not very rigorously) that the sum of the reciprocals of the primes less than $n$ grows approximately as fast as $\ln\ln n$ as $n$ approaches infinity.
 
-In this paper, we will see an easy proof of the infinitude of primes using a rigorous version of the Euler product formula, examine Euler's original proof and adapt it to rigorously prove that the sum of the reciprocals of primes diverge, and look at a proof for the lower bound of the sum.
+In this paper, we will see an easy proof of the infinitude of primes using a rigorous version of the Euler product formula (\cref{thm:EulerInfinitePrimes}), examine Euler's original proof (\cref{thm:EulerReciprocalOfPrimes}) and adapt it to rigorously prove that the sum of the reciprocals of primes diverge (\cref{thm:reciprocalPrimeDiverge}), and look at a proof for the lower bound of the sum (\cref{thm:sumReciprocalPrimeLnLn}).
 \section{Topological Proof}
+\label{sec:topological}
 Let us now examine the topological proof of the infinitude of primes given by Hillel Furstenberg.
 First we define the \textbf{evenly spaced integer topology} on the integers:
 \begin{lemma}
@@ -115,6 +116,7 @@ With these two properties, we are ready to prove that there are infinitely many 
 \end{proof}
 
 \section{Analytical Proofs}
+\label{sec:analytical}
 The analytical proofs of the infinitude of primes rest on Euler's observation that 
 \[
 \sum^\infty_{n=1}\frac{1}{n}=\prod_{p\text{ prime}}\frac{1}{1-p}
