@@ -152,33 +152,122 @@ However, since in his time Euler did not know about rigorous definitions of conv
 With this lemma, we can prove that there are infinitely many primes:
 \begin{theorem}
   \[
-  \log x\le \prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}
+  \ln x\le \prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}
   ,
   \]
-  where $\mathbb{P}$ is the set of all primes. Since $\log x$ is unbounded, there are infinitely many primes.
+  where $\mathbb{P}$ is the set of all primes. Since $\ln x$ is unbounded, there are infinitely many primes.
   \label{thm:EulerInfinitePrimes}
 \end{theorem}
 \begin{proof}
   Since $\int_j^{j+1}\frac{dt}{t}\le\int_j^{j+1}\frac{dt}{j}=\frac{1}{j}$, if $n\le x<n+1$, 
   \begin{align*}
-  \log x&=\int_1^x\frac{dt}{t}\\
-  &\le1+\frac{1}{2}+\dots+\frac{1}{n}\\
-  &\le\sum\frac{1}{m}\text{, where $m$ ranges over all positive integers with only prime divisors $p\le x$}\\
-  &=\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}\text{ (\cref{lem:EulerProduct})}
+    \ln x&=\int_1^x\frac{dt}{t}\\
+    &\le1+\frac{1}{2}+\dots+\frac{1}{n}\\
+    &\le\sum\frac{1}{m}\qquad\parbox{6cm}{where $m$ ranges over all positive integers with only prime divisors $p\le x$}\\
+    &=\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}\text{ (\cref{lem:EulerProduct})}
+    .
+  \end{align*}
+  If there are only $N$ primes, then there are at most $N$ terms in $\displaystyle\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}$, so it must be bounded. But clearly $\ln x$ is not bounded, so there must be infinitely many primes.
+\end{proof}
+
+Not only was Euler able to prove that the primes are infinite using this, but he was able to prove much more (though not rigorously in today's standards) --- that the sum of the reciprocals of primes diverge and $\sum_{p\le x}\frac{1}{p}\approx\ln\ln x$:
+
+\begin{theorem}
+  The sum of the reciprocals of the prime numbers,
+  \[
+  \frac{1}{2}+\frac{1}{3}+\frac{1}{5}+\frac{1}{7}+\frac{1}{11}+\frac{1}{13}+\dots
+  \]
+  is infinitely great but is infinitely times less than the sum of the harmonic series
+  \[
+  1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+\dots
+  \]
+  And the sum of the former is as the logarithm of the sum of the latter.
+  \label{thm:EulerReciprocalOfPrimes}
+\end{theorem}
+\begin{proof}
+  Euler first uses his product formula,
+  \[
+  \ln\left( \sum_{n=1}^\infty\frac{1}{n} \right)=\ln\left( \prod_{p\in\mathbb{P}}\frac{1}{1-p^{-1}} \right)=-\sum_{p\in\mathbb{P}}\ln\left( 1-\frac{1}{p} \right)
   .
-\end{align*}
-If there are only $N$ primes, then there are at most $N$ terms in $\displaystyle\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}$, so it must be bounded. But clearly $\log x$ is not bounded, so there must be infinitely many primes.
+  \]
+  Then he expands $\ln(1-x)$ near $0$ to get
+  \begin{align*}
+    \ln\left( \sum_{n=1}^\infty\frac{1}{n} \right)&=\sum_{p\in\mathbb{P}}\left( \frac{1}{p}+\frac{1}{2p^2}+\cdots \right)\\
+    &=\sum_{p\in\mathbb{P}}\frac{1}{p}+\frac{1}{2}\sum_{p\in\mathbb{P}}\frac{1}{p^2}+\frac{1}{3}\sum_{p\in\mathbb{P}}\frac{1}{p^3}+\cdots\\
+    &=A+\frac{1}{2}B+\frac{1}{3}C+\frac{1}{4}D+\cdots
+    ,
+  \end{align*}
+  where $\displaystyle A=\sum_{p\in\mathbb{P}}\frac{1}{p}$, $\displaystyle B=\sum_{p\in\mathbb{P}}\frac{1}{p^2}$, and $\displaystyle C=\sum_{p\in\mathbb{P}}\frac{1}{p^3}$\dots
+
+  Euler further claims that $A$ is infinite, while $\frac{1}{2}B+\frac{1}{3}C+\frac{1}{4}D+\cdots$ is some fixed constant. So 
+  \[
+  A=\frac{1}{2}+\frac{1}{3}+\frac{1}{5}+\frac{1}{7}+\frac{1}{11}+\frac{1}{13}+\dots=\ln \left( \sum_{n=1}^\infty\frac{1}{n} \right) = \ln\ln\infty
+  .
+  \]
+\end{proof}
+
+The result obtained by Euler was correct, even though he obtained it using dubious methods. However, we can modify his proof to rigorously prove that the sum of the reciprocals of primes diverges:
+\begin{theorem}
+  If the sum of the reciprocals of primes converge, then so does the the sum of the reciprocals of positive integers. Since the sum of the reciprocals of the positive integers diverges, so does the sum of the reciprocals of primes.
+  \label{thm:reciprocalPrimeDiverge}
+\end{theorem}
+\begin{proof}
+  Suppose that the sum of the reciprocals of primes converges:
+  \[
+  \sum_{p\in\mathbb{P}}\frac{1}{p}=S
+  .
+  \]
+  So
+  \begin{align*}
+    \sum_{k=1}^\infty\frac{1}{k}\sum_{p\in\mathbb{P}}\frac{1}{p^k}&\le S + \sum_{k=2}^\infty\frac{1}{k}\sum_{n\ge2}\frac{1}{n^k}\\
+    &\le S+\sum_{k=2}^\infty\frac{1}{k}\int_1^\infty\frac{dt}{t^k}\\
+    &=S+\sum_{k=2}^\infty\frac{1}{k(k-1)}\\
+    &=S+\sum_{k=2}^\infty\left( \frac{1}{k-1}-\frac{1}{k} \right)\\
+    &=S+1
+    .
+  \end{align*}
+  Since all the terms are positive, $\displaystyle\sum_{k=1}^\infty\frac{1}{k}\sum_{p\in\mathbb{P}}\frac{1}{p^k}=\sum_{p\in\mathbb{P}}\sum_{k=1}^\infty\frac{1}{kp^k}$ also converges. But for $|x|<1$, 
+  \[
+  -\ln(1-x)=\sum_{k=1}^\infty\frac{x^k}{k}
+  ,
+  \]
+  so
+  \[
+  \sum_{p\in\mathbb{P}}\sum_{k=1}^\infty\frac{1}{kp^k}=\sum_{p\in\mathbb{P}}\left( -\ln\left( 1-\frac{1}{p} \right) \right)=\ln\left( \prod_{p\in\mathbb{P}}\frac{1}{1-p^{-1}} \right)
+  .
+  \]
+  Thus, $\displaystyle\prod_{p\in\mathbb{P}}\frac{1}{1-p^{-1}}$ also converges. But
+  \begin{align*}
+    \prod_{p\in\mathbb{P}}\frac{1}{1-p^{-1}}&=\lim_{x\to\infty}\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}\\
+    &=\lim_{x\to\infty}\left( \sum\frac{1}{m}\qquad\parbox{6cm}{where $m$ ranges over all positive integers with only prime divisors $p\le x$} \right)\\
+    &=\sum_{n=1}^\infty\frac{1}{n}
+  \end{align*}
+  So $\displaystyle\sum_{n=1}^\infty\frac{1}{n}$ must also converge, which is a contradiction.
+
+  Therefore, $\displaystyle\sum_{p\in\mathbb{P}}\frac{1}{p}$ diverges.
+\end{proof}
+A full proof of Euler's result is beyond the scope of this paper, so we aim for less ambitious goals. We will see a proof for the lower bound of the sum of the reciprocals of primes.
+
+\begin{theorem}
+  \[
+  \sum_{\substack{p\in\mathbb{P}\\p\le n}}\frac{1}{p}>\ln\ln(n+1)-\ln\frac{5}{3}
+  .
+  \]
+  \label{thm:sumReciprocalPrimeLnLn}
+\end{theorem}
+\begin{proof}
+  
 \end{proof}<++>
 
-
 \begin{thebibliography}{12}
-  \bibitem{<+bibkey+>} <++>
-    \textit{Title}, Author, Place: Publisher Year
   \bibitem{bib:mathHistory}
     \textit{Mathematics and Its History}, Stillwell, Springer (2010)
-  \bibitem{bib:proofsFromTheBook}
-    \textit{Proofs from The Book}, Aigner, Ziegler, Springer-Verlag (1998)
   \bibitem{bib:Furstenberg}
     \textit{On the Infinitude of primes}, Furstenberg, American Mathematical Monthly (1955) 62 (5): 353
-\end{thebibliography}<++>
+  \bibitem{bib:proofsFromTheBook}
+    \textit{Proofs from The Book}, Aigner, Ziegler, Springer-Verlag (1998)
+  \bibitem{bib:Euler}
+    \textit{Variae observationes circa series infinitas (E72)}, Euler, Commentarii academiae scientiarum
+    Petropolitanae 9 (1744), 160–188
+\end{thebibliography}
 \end{document}
