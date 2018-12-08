@@ -17,7 +17,7 @@
 \Crefname{subsection}{subsection}{subsections}
 
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 
@@ -52,7 +52,7 @@ The analytical proofs center on the Euler product formula,
 where $\mathbb{P}$ is the set of primes.
 If we forget about convergence and divergence for a moment and let $s$ take on the value $1$, then this formula establishes a relationship between the sum of the reciprocals of natural numbers and the sum of the reciprocals of primes. Using this, Euler proved (not very rigorously) that the sum of the reciprocals of the primes less than $n$ grows approximately as fast as $\ln\ln n$ as $n$ approaches infinity.
 
-In this paper, we will see an easy proof of the infinitude of primes using a rigorous version of the Euler product formula (\Cref{thm:EulerInfinitePrimes}), examine Euler's original proof (\Cref{thm:EulerReciprocalOfPrimes}) and adapt it to rigorously prove that the sum of the reciprocals of primes diverge (\Cref{thm:reciprocalPrimeDiverge}), and look at a proof for the lower bound of the sum (\Cref{thm:sumReciprocalPrimeLnLn}).
+In this paper, we will see an easy proof of the infinitude of primes using a rigorous version of the Euler product formula (\Cref{thm:EulerInfinitePrimes}, \Cref{cor:EulerInfinitePrimes}), examine Euler's original proof (\Cref{thm:EulerReciprocalOfPrimes}) and adapt it to rigorously prove that the sum of the reciprocals of primes diverge (\Cref{thm:reciprocalPrimeDiverge}), and look at a proof for the lower bound of the sum (\Cref{thm:sumReciprocalPrimeLnLn}).
 \section{Topological Proof}
 \label{sec:topological}
 Let us now examine the topological proof of the infinitude of primes given by Hillel Furstenberg.
@@ -130,7 +130,7 @@ With these two properties, we are ready to prove that there are infinitely many 
 \label{sec:analytical}
 The analytical proofs of the infinitude of primes rest on Euler's observation that 
 \[
-\sum^\infty_{n=1}\frac{1}{n}=\prod_{p\in\mathbb{P}}\frac{1}{1-p}
+\sum^\infty_{n=1}\frac{1}{n}=\prod_{p\in\mathbb{P}}\frac{1}{1-\frac{1}{p}}
 ,
 \]
 where $\mathbb{P}$ is the set of primes.
@@ -164,26 +164,34 @@ However, since in his time Euler did not know about rigorous definitions of conv
 \end{proof}
 With this lemma, we can prove that there are infinitely many primes:
 \begin{theorem}
+  For all $x>0$,
   \[
   \ln x\le \prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}
   ,
   \]
-  where $\mathbb{P}$ is the set of all primes. Since $\ln x$ is unbounded, there are infinitely many primes.
+  where $\mathbb{P}$ is the set of all primes. 
   \label{thm:EulerInfinitePrimes}
 \end{theorem}
 \begin{proof}
-  Since 
+  First note that
   \[\int_j^{j+1}\frac{dt}{t}\le\int_j^{j+1}\frac{dt}{j}=\frac{1}{j}
-  ,
+  .
   \]
-  if $n\le x<n+1$, 
+  Thus, if $n\le x<n+1$, 
   \begin{align*}
     \ln x&=\int_1^x\frac{dt}{t}\\
     &\le1+\frac{1}{2}+\dots+\frac{1}{n}\\
-    &\le\sum\frac{1}{m}\qquad\parbox{6cm}{where $m$ ranges over all positive integers with only prime divisors $p\le x$}\\
+    &\le\sum_{m\in I_x}\frac{1}{m}\\
     &=\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}\qquad\text{(\Cref{lem:EulerProduct})}
-    .
+    ,
   \end{align*}
+  where $I_x$ is the set of all positive integers $m$ with only prime divisors $p\le x$.
+\end{proof}
+\begin{corollary}
+  There are infinitely many primes.
+  \label{cor:EulerInfinitePrimes}
+\end{corollary}
+\begin{proof}
   If there are only $N$ primes, then there are at most $N$ terms in $\displaystyle\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}$, so it must be bounded. But clearly $\ln x$ is not bounded, so there must be infinitely many primes.
 \end{proof}
 
