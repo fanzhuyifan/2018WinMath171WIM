@@ -52,7 +52,7 @@ The analytical proofs center on the Euler product formula,
 where $\mathbb{P}$ is the set of primes.
 If we forget about convergence and divergence for a moment and let $s$ take on the value $1$, then this formula establishes a relationship between the sum of the reciprocals of natural numbers and the sum of the reciprocals of primes. Using this, Euler proved (not very rigorously) that the sum of the reciprocals of the primes less than $n$ grows approximately as fast as $\ln\ln n$ as $n$ approaches infinity.
 
-In this paper, we will see an easy proof of the infinitude of primes using a rigorous version of the Euler product formula (\Cref{thm:EulerInfinitePrimes}, \Cref{cor:EulerInfinitePrimes}), examine Euler's original proof (\Cref{thm:EulerReciprocalOfPrimes}) and adapt it to rigorously prove that the sum of the reciprocals of primes diverge (\Cref{thm:reciprocalPrimeDiverge}), and look at a proof for the lower bound of the sum (\Cref{thm:sumReciprocalPrimeLnLn}).
+In this paper, we will see an easy proof of the infinitude of primes using a rigorous version of the Euler product formula (\Cref{thm:EulerInfinitePrimes} and \Cref{cor:EulerInfinitePrimes}), examine Euler's original proof (\Cref{thm:EulerReciprocalOfPrimes}) and adapt it to rigorously prove that the sum of the reciprocals of primes diverge (\Cref{thm:reciprocalPrimeDiverge} and \Cref{cor:reciprocalPrimeDiverge}), and look at a proof for the lower bound of the sum (\Cref{thm:sumReciprocalPrimeLnLn}).
 \section{Topological Proof}
 \label{sec:topological}
 Let us now examine the topological proof of the infinitude of primes given by Hillel Furstenberg.
@@ -234,16 +234,16 @@ Not only was Euler able to prove that the primes are infinite using this, but he
 
 The result obtained by Euler was correct, even though he obtained it using dubious methods. However, we can modify his proof to rigorously prove that the sum of the reciprocals of primes diverges:
 \begin{theorem}
-  If the sum of the reciprocals of primes converge, then so does the the sum of the reciprocals of positive integers. Since the sum of the reciprocals of the positive integers diverges, so does the sum of the reciprocals of primes.
+  If the sum of the reciprocals of primes converges, then so does the the sum of the reciprocals of positive integers.
   \label{thm:reciprocalPrimeDiverge}
 \end{theorem}
 \begin{proof}
-  Suppose that the sum of the reciprocals of primes converges:
+  Suppose that the sum of the reciprocals of primes converges to $S$:
   \[
   \sum_{p\in\mathbb{P}}\frac{1}{p}=S
   .
   \]
-  So
+  Thus,
   \begin{align*}
     \sum_{k=1}^\infty\frac{1}{k}\sum_{p\in\mathbb{P}}\frac{1}{p^k}&\le S + \sum_{k=2}^\infty\frac{1}{k}\sum_{n\ge2}\frac{1}{n^k}\\
     &\le S+\sum_{k=2}^\infty\frac{1}{k}\int_1^\infty\frac{dt}{t^k}\\
@@ -252,7 +252,7 @@ The result obtained by Euler was correct, even though he obtained it using dubio
     &=S+1
     .
   \end{align*}
-  Since all the terms are positive, 
+  Since all terms are positive, we can rearrange the terms and see that
   \[
   \displaystyle\sum_{k=1}^\infty\frac{1}{k}\sum_{p\in\mathbb{P}}\frac{1}{p^k}=\sum_{p\in\mathbb{P}}\sum_{k=1}^\infty\frac{1}{kp^k}
   \]
@@ -269,12 +269,20 @@ The result obtained by Euler was correct, even though he obtained it using dubio
   Thus, $\displaystyle\prod_{p\in\mathbb{P}}\frac{1}{1-p^{-1}}$ also converges. But
   \begin{align*}
     \prod_{p\in\mathbb{P}}\frac{1}{1-p^{-1}}&=\lim_{x\to\infty}\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}\\
-    &=\lim_{x\to\infty}\left( \sum\frac{1}{m}\qquad\parbox{6cm}{where $m$ ranges over all positive integers with only prime divisors $p\le x$} \right)\\
+    &=\lim_{x\to\infty}\left( \sum_{m\in I_x}\frac{1}{m} \right)\\
     &=\sum_{n=1}^\infty\frac{1}{n}
+    ,
   \end{align*}
-  So $\displaystyle\sum_{n=1}^\infty\frac{1}{n}$ must also converge, which is a contradiction.
+  where $I_x$ is the set of all positive integers $m$ with only prime divisors $p\le x$.
+  So $\displaystyle\sum_{n=1}^\infty\frac{1}{n}$ also converges.
 
-  Therefore, $\displaystyle\sum_{p\in\mathbb{P}}\frac{1}{p}$ diverges.
+\end{proof}
+\begin{corollary}
+  There are infinitely many primes.
+  \label{cor:reciprocalPrimeDiverge}
+\end{corollary}
+\begin{proof}
+  From \Cref{thm:reciprocalPrimeDiverge}, we know that if the sum of the reciprocals of primes converges, then the sum of the reciprocals of positive integers converges. But we know that the sum of the reciprocals of positive integers diverges. So the sum of the reciprocals of primes diverges. Therefore, there are infinitely many primes.
 \end{proof}
 A full proof of Euler's result is beyond the scope of this paper, so we aim for less ambitious goals. We only prove a lower bound for the sum of the reciprocals of primes less than or equal to $n$ in the theorem bellow:
 
