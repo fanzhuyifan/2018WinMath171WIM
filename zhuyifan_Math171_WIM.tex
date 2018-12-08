@@ -80,8 +80,9 @@ Before we proceed, we need to check that the evenly spaced integer topology is i
       For any $a\in O_1\cap O_2$, we can find $b_1,b_2\in\mathbb{Z^+}$ with $S(a,b_1)\subset O_1$ and $S(a,b_2)\subset O_2$. Then $S(a,b_1b_2)\subset O_1\cap O_2$. Thus $O_1\cap O_2$ is open.
 
   \end{enumerate}
-  Hence, $\tau$ defines a topology on $\mathbb{Z}$.
+  Hence, the evenly spaced integer topology is indeed a topology on $\mathbb{Z}$.
 \end{proof}
+Hence forward in this section, unless specified otherwise, all open or closed sets refer to open or closed sets in the evenly spaced integer topology.
 
 The evenly spaced integer topology has two interesting properties that we will need:
 \begin{lemma}
@@ -105,21 +106,24 @@ The evenly spaced integer topology has two interesting properties that we will n
 \end{proof}
 With these two properties, we are ready to prove that there are infinitely many primes:
 \begin{theorem}
-  In the evenly spaced integer topology, $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ cannot be closed. But if the primes are finite, then $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ is closed. Thus, there are infinitely many primes.
+  If the primes are finite, then the set $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ is closed in the evenly spaced integer topology.
   \label{thm:topPrimes}
 \end{theorem}
 \begin{proof}
-  Since $\left\{ -1,+1 \right\}$ is finite, we know from the first property of \Cref{lem:2prop} that it cannot be open. Thus, $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ cannot be closed.
-
   Since $-1$ and $+1$ are the only integers that are not multiples of primes,
   \[
   \mathbb{Z}\setminus\left\{ -1,+1 \right\}=\bigcup\limits_{p\in\mathbb{P}}S(0,p)
   ,
   \]
   where $\mathbb{P}$ is the set of primes.
-  If the primes are finite, then from the second property of \Cref{lem:2prop} we know that the right hand side is the finite union of closed sets, so it is also closed. Thus, $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ is closed. But we already know that $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ cannot be closed, so this is a contradiction.
-
-  Therefore, there are infinitely many primes.
+  If the primes are finite, then from the second property of \Cref{lem:2prop} we know that the right hand side is the finite union of closed sets, so it is also closed. Thus, $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ is closed. 
+\end{proof}
+\begin{corollary}
+  There are infinitely many primes.
+  \label{cor:topPrimes}
+\end{corollary}
+\begin{proof}
+  Since $\left\{ -1,+1 \right\}$ is finite, we know from the first property of \Cref{lem:2prop} that it cannot be open in the evenly spaced integer topology. Thus, $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ cannot be closed. However, \Cref{thm:topPrimes} tells us that if the primes are finite,  $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ is closed, which would be a contradiction. Therefore, there are infinitely many primes.
 \end{proof}
 
 \section{Analytical Proofs}
