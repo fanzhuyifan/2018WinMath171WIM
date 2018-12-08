@@ -136,11 +136,12 @@ The analytical proofs of the infinitude of primes rest on Euler's observation th
 where $\mathbb{P}$ is the set of primes.
 However, since in his time Euler did not know about rigorous definitions of convergence and divergence, we need to make his observation more rigorous to suit today's needs:
 \begin{lemma}
+  For all $x>0$, the sum of reciprocals of positive integers with only prime divisors less than or equal to $x$, $\displaystyle \sum_{m\in I_x}\frac{1}{m}$, is equal to $\displaystyle \prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}$:
   \[
-  \sum\frac{1}{m}=\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}
+  \sum_{m\in I_x}\frac{1}{m}=\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}
   ,
   \]
-  where the sum $\sum\frac{1}{m}$ ranges over all $m\in\mathbb{N^*}$ with only prime divisors $p\le x$ and $\mathbb{P}$ denotes the set of all primes.
+  where $I_x$ is the set of integers $m\in\mathbb{N^*}$ with only prime divisors $p\le x$ and $\mathbb{P}$ is the set of all primes.
   \label{lem:EulerProduct}
 \end{lemma}
 \begin{proof}
@@ -149,18 +150,17 @@ However, since in his time Euler did not know about rigorous definitions of conv
     \prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}&=\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\sum_{k\ge0}\frac{1}{p^k}\\
     .
   \end{align*}
-  Let the primes less than or equal to $x$ be $p_1,p_2,\dots,p_m$. So
+  Let the primes less than or equal to $x$ be $p_1,p_2,\dots,p_n$. So
   \begin{align*}
-    \prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}&=\prod\limits_{j=1}^m\sum_{k\ge0}\frac{1}{p_j^k}\\
-    &=\sum\limits_{k_1,\dots,k_m\in\mathbb{N}}\frac{1}{p_1^{k_1}p_2^{k_2}\cdots p_m^{k_m}}
+    \prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}&=\prod\limits_{j=1}^n\sum_{k\ge0}\frac{1}{p_j^k}\\
+    &=\sum\limits_{k_1,\dots,k_n\in\mathbb{N}}\frac{1}{p_1^{k_1}p_2^{k_2}\cdots p_n^{k_n}}
     .
   \end{align*}
-  Since every $m$ with only prime divisors $p\le x$ can be uniquely factorized into $p_1^{k_1}p_2^{k_2}\cdots p_m^{k_m}$, this is just equal to $\sum\frac{1}{m}$. Thus,
+  Since every $m$ with only prime divisors $p\le x$ can be uniquely factorized into $p_1^{k_1}p_2^{k_2}\cdots p_n^{k_n}$, this is just equal to $\displaystyle\sum_{m\in I_x}\frac{1}{m}$. Thus,
   \[
-  \sum\frac{1}{m}=\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}
-  ,
+  \sum_{m\in I_x}\frac{1}{m}=\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}
+  .
   \]
-  where the sum $\sum\frac{1}{m}$ ranges over all $m\in\mathbb{N^*}$ with only prime divisors $p\le x$.
 \end{proof}
 With this lemma, we can prove that there are infinitely many primes:
 \begin{theorem}
