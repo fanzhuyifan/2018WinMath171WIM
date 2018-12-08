@@ -42,7 +42,7 @@ Yifan Zhu
 \section{Introduction}
 Humans' study of math really began with natural numbers --- counting was universal. With the study of natural numbers, the field of number theory naturally emerged. Central to this field is the study of primes. Among their many interesting properties, the most well known is probably their infinitude. This result dates back thousands of years --- around 300BC, Euclid proved in \textit{Elements} that there are infinitely many primes. \cite{bib:mathHistory} Since then, mathematicians have given many different proofs. In this paper, we will examine Hillel Furstenberg's topological proof in \cref{sec:topological} and a series of analytical proofs dating back to Euler in \cref{sec:analytical}.
 
-Hillel Furstenberg's topological proof stands out for being, well, \textbf{topological}. You might be tempted to ask, {WHAT ON EARTH DO PRIMES HAVE TO DO WITH TOPOLOGY?} As we will see later, Furstenberg made this remarkable connection (as an undergrad at Yeshiva University) by defining the evenly spaced integer topology on the set of integers, where the open sets are unions of arithmetic sequences. In light of this, his proof is more about certain properties of arithmetic sequences than about topology. \cite{bib:Furstenberg} \cite{bib:proofsFromTheBook} 
+Hillel Furstenberg's topological proof stands out for being, well, \textbf{topological}. You might be tempted to ask, {WHAT ON EARTH DO PRIMES HAVE TO DO WITH TOPOLOGY?} As we will see later, Furstenberg made this remarkable connection (as an undergrad at Yeshiva University) by defining the \textbf{evenly spaced integer topology} on the set of integers, where the open sets are unions of arithmetic sequences. In light of this, his proof is more about certain properties of arithmetic sequences than about topology. \cite{bib:Furstenberg} \cite{bib:proofsFromTheBook} 
 
 The analytical proofs center on the Euler product formula,
 \[
@@ -56,9 +56,9 @@ In this paper, we will see an easy proof of the infinitude of primes using a rig
 \section{Topological Proof}
 \label{sec:topological}
 Let us now examine the topological proof of the infinitude of primes given by Hillel Furstenberg.
-First we define the evenly spaced integer topology on the integers:
+First we define the \textbf{evenly spaced integer topology} on the integers:
 \begin{definition}
-  The evenly spaced integer topology is a topology where the open sets are (possibly empty) unions of two-way infinite arithmetic sequences $S(a,b)=\left\{ a+nb:n\in\mathbb{Z} \right\}$ ($a$ and $b$ are integers). Or equivalently, a set $O\subset\mathbb{Z}$ is open if for all $a\in O$ there exists some $b\in\mathbb{Z^+}$ with $S(a,b)\subset O$.
+  The \textbf{evenly spaced integer topology} is a topology where the open sets are (possibly empty) unions of two-way infinite arithmetic sequences $S(a,b)=\left\{ a+nb:n\in\mathbb{Z} \right\}$ ($a$ and $b$ are integers). Or equivalently, a set $O\subset\mathbb{Z}$ is open if for all $a\in O$ there exists some $b\in\mathbb{Z^+}$ with $S(a,b)\subset O$.
   \label{def:esip}
 \end{definition}
 Before we proceed, we need to check that the evenly spaced integer topology is indeed a topology:
