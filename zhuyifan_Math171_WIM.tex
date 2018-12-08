@@ -14,7 +14,7 @@
 \usepackage{thm-restate}
 \usepackage{hyperref}
 \usepackage[noabbrev]{cleveref}
-\crefname{subsection}{subsection}{subsections}
+\Crefname{subsection}{subsection}{subsections}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}[theorem]{Corollary}
@@ -40,7 +40,7 @@ Yifan Zhu
 \end{abstract}
 
 \section{Introduction}
-Humans' study of math really began with natural numbers --- counting was universal. With the study of natural numbers, the field of number theory naturally emerged. Central to this field is the study of primes. Among their many interesting properties, the most well known is probably their infinitude. This result dates back thousands of years --- around 300BC, Euclid proved in \textit{Elements} that there are infinitely many primes. \cite{bib:mathHistory} Since then, mathematicians have given many different proofs. In this paper, we will examine Hillel Furstenberg's topological proof in \cref{sec:topological} and a series of analytical proofs dating back to Euler in \cref{sec:analytical}.
+Humans' study of math really began with natural numbers --- counting was universal. With the study of natural numbers, the field of number theory naturally emerged. Central to this field is the study of primes. Among their many interesting properties, the most well known is probably their infinitude. This result dates back thousands of years --- around 300BC, Euclid proved in \textit{Elements} that there are infinitely many primes. \cite{bib:mathHistory} Since then, mathematicians have given many different proofs. In this paper, we will examine Hillel Furstenberg's topological proof in \Cref{sec:topological} and a series of analytical proofs dating back to Euler in \Cref{sec:analytical}.
 
 Hillel Furstenberg's topological proof stands out for being, well, \textbf{topological}. You might be tempted to ask, {WHAT ON EARTH DO PRIMES HAVE TO DO WITH TOPOLOGY?} As we will see later, Furstenberg made this remarkable connection (as an undergrad at Yeshiva University) by defining the evenly spaced integer topology on the set of integers, where the open sets are unions of arithmetic sequences. In light of this, his proof is more about certain properties of arithmetic sequences than about topology. \cite{bib:Furstenberg} \cite{bib:proofsFromTheBook} 
 
@@ -52,7 +52,7 @@ The analytical proofs center on the Euler product formula,
 where $\mathbb{P}$ is the set of primes.
 If we forget about convergence and divergence for a moment and let $s$ take on the value $1$, then this formula establishes a relationship between the sum of the reciprocals of natural numbers and the sum of the reciprocals of primes. Using this, Euler proved (not very rigorously) that the sum of the reciprocals of the primes less than $n$ grows approximately as fast as $\ln\ln n$ as $n$ approaches infinity.
 
-In this paper, we will see an easy proof of the infinitude of primes using a rigorous version of the Euler product formula (\cref{thm:EulerInfinitePrimes}), examine Euler's original proof (\cref{thm:EulerReciprocalOfPrimes}) and adapt it to rigorously prove that the sum of the reciprocals of primes diverge (\cref{thm:reciprocalPrimeDiverge}), and look at a proof for the lower bound of the sum (\cref{thm:sumReciprocalPrimeLnLn}).
+In this paper, we will see an easy proof of the infinitude of primes using a rigorous version of the Euler product formula (\Cref{thm:EulerInfinitePrimes}), examine Euler's original proof (\Cref{thm:EulerReciprocalOfPrimes}) and adapt it to rigorously prove that the sum of the reciprocals of primes diverge (\Cref{thm:reciprocalPrimeDiverge}), and look at a proof for the lower bound of the sum (\Cref{thm:sumReciprocalPrimeLnLn}).
 \section{Topological Proof}
 \label{sec:topological}
 Let us now examine the topological proof of the infinitude of primes given by Hillel Furstenberg.
@@ -109,7 +109,7 @@ With these two properties, we are ready to prove that there are infinitely many 
   \label{thm:topPrimes}
 \end{theorem}
 \begin{proof}
-  Since $\left\{ -1,+1 \right\}$ is finite, we know from the first property of \cref{lem:2prop} that it cannot be open. Thus, $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ cannot be closed.
+  Since $\left\{ -1,+1 \right\}$ is finite, we know from the first property of \Cref{lem:2prop} that it cannot be open. Thus, $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ cannot be closed.
 
   Since $-1$ and $+1$ are the only integers that are not multiples of primes,
   \[
@@ -117,7 +117,7 @@ With these two properties, we are ready to prove that there are infinitely many 
   ,
   \]
   where $\mathbb{P}$ is the set of primes.
-  If the primes are finite, then from the second property of \cref{lem:2prop} we know that the right hand side is the finite union of closed sets, so it is also closed. Thus, $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ is closed. But we already know that $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ cannot be closed, so this is a contradiction.
+  If the primes are finite, then from the second property of \Cref{lem:2prop} we know that the right hand side is the finite union of closed sets, so it is also closed. Thus, $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ is closed. But we already know that $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ cannot be closed, so this is a contradiction.
 
   Therefore, there are infinitely many primes.
 \end{proof}
@@ -177,7 +177,7 @@ With this lemma, we can prove that there are infinitely many primes:
     \ln x&=\int_1^x\frac{dt}{t}\\
     &\le1+\frac{1}{2}+\dots+\frac{1}{n}\\
     &\le\sum\frac{1}{m}\qquad\parbox{6cm}{where $m$ ranges over all positive integers with only prime divisors $p\le x$}\\
-    &=\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}\qquad\text{(\cref{lem:EulerProduct})}
+    &=\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}\qquad\text{(\Cref{lem:EulerProduct})}
     .
   \end{align*}
   If there are only $N$ primes, then there are at most $N$ terms in $\displaystyle\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}$, so it must be bounded. But clearly $\ln x$ is not bounded, so there must be infinitely many primes.
