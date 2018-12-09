@@ -40,9 +40,9 @@ Yifan Zhu
 \end{abstract}
 
 \section{Introduction}
-Humans' study of math really began with natural numbers --- counting was universal. With the study of natural numbers, the field of number theory naturally emerged. Central to this field is the study of primes. Among their many interesting properties, the most well known is probably their infinitude. This result dates back thousands of years --- around 300BC, Euclid proved in \textit{Elements} that there are infinitely many primes. \cite{bib:mathHistory} Since then, mathematicians have given many different proofs. In this paper, we will examine Hillel Furstenberg's topological proof in \Cref{sec:topological} and a series of analytical proofs dating back to Euler in \Cref{sec:analytical}.
+The history of mathematics really began with natural numbers --- counting was universal. With the study of natural numbers, the field of number theory naturally emerged. Central to this field is the study of primes. Among their many interesting properties, the most well known is probably their infinitude. This result dates back thousands of years --- around 300BC, Euclid proved in \textit{Elements} that there are infinitely many primes. \cite{bib:mathHistory} Since then, mathematicians have given many different proofs. In this paper, we will examine Hillel Furstenberg's topological proof in \Cref{sec:topological} and a series of analytical proofs dating back to Euler in \Cref{sec:analytical}.
 
-Hillel Furstenberg's topological proof stands out for being, well, \textbf{topological}. You might be tempted to ask, {WHAT ON EARTH DO PRIMES HAVE TO DO WITH TOPOLOGY?} As we will see later, Furstenberg made this remarkable connection (as an undergrad at Yeshiva University) by defining the evenly spaced integer topology on the set of integers, where the open sets are unions of arithmetic sequences. In light of this, his proof is more about certain properties of arithmetic sequences than about topology. \cite{bib:Furstenberg} \cite{bib:proofsFromTheBook} 
+Hillel Furstenberg's topological proof stands out for being, well, \textbf{topological}. As detailed in \Cref{sec:topological}, Furstenberg made this remarkable connection between topology and primes (as an undergraduate student at Yeshiva University) by defining the evenly spaced integer topology on the set of integers, where the open sets are unions of arithmetic sequences. In light of this, his proof is more about certain properties of arithmetic sequences than about topology. \cite{bib:Furstenberg} \cite{bib:proofsFromTheBook} 
 
 The analytical proofs center on the Euler product formula,
 \[
@@ -58,7 +58,7 @@ In this paper, we will see an easy proof of the infinitude of primes using a rig
 Let us now examine the topological proof of the infinitude of primes given by Hillel Furstenberg.
 First we define the \textbf{evenly spaced integer topology} on the integers:
 \begin{definition}
-  The \textbf{evenly spaced integer topology} is a topology where the open sets are (possibly empty) unions of two-way infinite arithmetic sequences $S(a,b)=\left\{ a+nb:n\in\mathbb{Z} \right\}$ ($a$ and $b$ are integers). Or equivalently, a set $O\subset\mathbb{Z}$ is open if for all $a\in O$ there exists some $b\in\mathbb{Z^+}$ with $S(a,b)\subset O$.
+  The \textbf{evenly spaced integer topology} is a topology where the open sets are (possibly empty) unions of two-way infinite arithmetic sequences $S(a,b)=\left\{ a+nb:n\in\mathbb{Z} \right\}$, where $a$ and $b$ are integers. Or equivalently, a set $O\subset\mathbb{Z}$ is open if for all $a\in O$ there exists some $b\in\mathbb{Z^+}$ with $S(a,b)\subset O$.
   \label{def:esip}
 \end{definition}
 Before we proceed, we need to check that the evenly spaced integer topology is indeed a topology:
@@ -83,10 +83,9 @@ Before we proceed, we need to check that the evenly spaced integer topology is i
   Hence, the evenly spaced integer topology is indeed a topology on $\mathbb{Z}$.
 \end{proof}
 Hence forward in this section, unless specified otherwise, all open or closed sets refer to open or closed sets in the evenly spaced integer topology.
-
 The evenly spaced integer topology has two interesting properties that we will need:
 \begin{lemma}
-  In the evenly spaced integer topology $\tau$,
+  In the evenly spaced integer topology,
   \begin{enumerate}
     \item Any non-empty open set is infinite.
     \item Any of the basis sets $S(a,b)$ is also closed.
@@ -100,7 +99,7 @@ The evenly spaced integer topology has two interesting properties that we will n
 \begin{proof}
   Both of these properties easily follow from the definition:
   \begin{enumerate}
-    \item If the open set $O$ is not empty, we can find $a\in O$. Thus we can find $S(a,b)\subset O$. Since $S(a,b)$ is infinite, so is $O$.
+    \item If the open set $O$ is not empty, we can find $a\in O$. Since $O$ is open, we can find integer $b$ such that $S(a,b)\subset O$. Since $S(a,b)$ is infinite, so is $O$.
     \item Note that $\displaystyle S(a,b)=\mathbb{Z}\setminus \bigcup\limits_{i=1}^{b-1}S(a+i,b)$. So $S(a,b)$ is closed as well as open.
   \end{enumerate}
 \end{proof}
@@ -123,7 +122,7 @@ With these two properties, we are ready to prove that there are infinitely many 
   \label{cor:topPrimes}
 \end{corollary}
 \begin{proof}
-  Since $\left\{ -1,+1 \right\}$ is finite, we know from the first property of \Cref{lem:2prop} that it cannot be open in the evenly spaced integer topology. Thus, $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ cannot be closed. However, \Cref{thm:topPrimes} tells us that if the primes are finite,  $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ is closed, which would be a contradiction. Therefore, there are infinitely many primes.
+  Since $\left\{ -1,+1 \right\}$ is finite, we know from the first property of \Cref{lem:2prop} that it cannot be open in the evenly spaced integer topology. Thus, $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ cannot be closed. However, \Cref{thm:topPrimes} tells us that if the primes were finite,  $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ would be closed, which would be a contradiction. Therefore, there are infinitely many primes.
 \end{proof}
 
 \section{Analytical Proofs}
@@ -133,8 +132,7 @@ The analytical proofs of the infinitude of primes rest on Euler's observation th
 \sum^\infty_{n=1}\frac{1}{n}=\prod_{p\in\mathbb{P}}\frac{1}{1-\frac{1}{p}}
 ,
 \]
-where $\mathbb{P}$ is the set of primes.
-However, since in his time Euler did not know about rigorous definitions of convergence and divergence, we need to make his observation more rigorous to suit today's needs:
+where $\mathbb{P}$ is the set of primes. However, this observation is not rigorous in the sense that both sides are divergent. A rigorous version is provided below:
 \begin{lemma}
   For all $x>0$, the sum of reciprocals of positive integers with only prime divisors less than or equal to $x$, $\displaystyle \sum_{m\in I_x}\frac{1}{m}$, is equal to $\displaystyle \prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}$:
   \[
@@ -178,24 +176,34 @@ With this lemma, we can prove that there are infinitely many primes:
   .
   \]
   Thus, if $n\le x<n+1$, 
-  \begin{align*}
-    \ln x&=\int_1^x\frac{dt}{t}\\
-    &\le1+\frac{1}{2}+\dots+\frac{1}{n}\\
-    &\le\sum_{m\in I_x}\frac{1}{m}\\
-    &=\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}\qquad\text{(\Cref{lem:EulerProduct})}
-    ,
-  \end{align*}
-  where $I_x$ is the set of all positive integers $m$ with only prime divisors $p\le x$.
+  \[
+  \ln x=\int_1^x\frac{dt}{t}\le\int_1^{n+1}\frac{dt}{t}\le1+\frac{1}{2}+\dots+\frac{1}{n}
+  .
+  \]
+  Since $I_x$, the set of all positive integers $m$ with only prime divisors $p\le x$, contains all integers from $1$ to $n$,
+  \[
+  \ln x\le1+\frac{1}{2}+\dots+\frac{1}{n}\le\sum_{m\in I_x}\frac{1}{m}
+  .
+  \]
+  \Cref{lem:EulerProduct} tells us that 
+  \[\sum_{m\in I_x}\frac{1}{m}=\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}
+  ,
+  \]
+  so
+  \[
+  \ln x\le \prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}
+  .
+  \]
 \end{proof}
 \begin{corollary}
   There are infinitely many primes.
   \label{cor:EulerInfinitePrimes}
 \end{corollary}
 \begin{proof}
-  If there are only $N$ primes, then there are at most $N$ terms in $\displaystyle\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}$, so it must be bounded. But clearly $\ln x$ is not bounded, so there must be infinitely many primes.
+  If there are only $N$ primes, then there are at most $N$ terms in $\displaystyle\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}$, so it must be bounded, which implies that $\ln x$ is also bounde is also boundedd. But clearly $\ln x$ is not bounded, so there must be infinitely many primes.
 \end{proof}
 
-Not only was Euler able to prove that the primes are infinite using this, but he was able to prove a stronger result (though not rigorously by today's standards) --- that the sum of the reciprocals of primes diverge and $\displaystyle\sum_{p\le x}\frac{1}{p}\approx\ln\ln x$:
+Not only was Euler able to prove that the primes are infinite using this, but he was able to prove a stronger result (though not rigorously by today's standards) --- that the sum of the reciprocals of primes diverge and that $\displaystyle\sum_{\substack{p\le x\\p\in\mathbb{P}}}\frac{1}{p}\approx\ln\ln x$:
 
 \begin{theorem}
   The sum of the reciprocals of the prime numbers,
@@ -207,9 +215,11 @@ Not only was Euler able to prove that the primes are infinite using this, but he
   1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+\dots
   \]
   And the sum of the former is as the logarithm of the sum of the latter.
-  \cite{bib:Euler}
   \label{thm:EulerReciprocalOfPrimes}
 \end{theorem}
+\begin{remark}
+  The archaic wording of this theorem is taken directly from a English translation of Euler's original paper\cite{bib:Euler}. Both the original and an English translation can be found on \textit{The Euler Archive} (http://eulerarchive.maa.org/pages/E072.html).
+\end{remark}
 \begin{proof}
   Euler first uses his product formula,
   \[
