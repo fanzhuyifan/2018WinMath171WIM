@@ -36,13 +36,13 @@ Yifan Zhu
 \maketitle
 
 \begin{abstract}
-  Mathematicians dating back to Euclid have known about the infinitude of primes. Since then, many different proofs have been proposed. This paper examines Hillel Furstenberg's topological proof and a series of analytical proofs that go back to Euler's proof that the sum of the reciprocals of primes diverges.
+  Mathematicians have known about the infinitude of primes from Euclid's time. Since then, many different proofs have been proposed. This paper examines Hillel Furstenberg's topological proof and a series of analytical proofs that go back to Euler's proof that the sum of the reciprocals of primes diverges.
 \end{abstract}
 
 \section{Introduction}
-The history of mathematics really began with natural numbers --- counting was universal. With the study of natural numbers, the field of number theory naturally emerged. Central to this field is the study of primes. Among their many interesting properties, the most well known is probably their infinitude. This result dates back thousands of years --- around 300BC, Euclid proved in \textit{Elements} that there are infinitely many primes. \cite{bib:mathHistory} Since then, mathematicians have given many different proofs. In this paper, we will examine Hillel Furstenberg's topological proof in \Cref{sec:topological} and a series of analytical proofs dating back to Euler in \Cref{sec:analytical}.
+The history of mathematics began with natural numbers, from which number theory naturally emerged. Central to this field is the study of primes. Among their many interesting properties, the most well known is probably their infinitude. This result dates back thousands of years --- around 300BC, Euclid proved in \textit{Elements} that there are infinitely many primes\cite{bib:mathHistory}. Since then, mathematicians have given many different proofs. In this paper, we examine Hillel Furstenberg's topological proof in \Cref{sec:topological} and a series of analytical proofs dating back to Euler in \Cref{sec:analytical}.
 
-Hillel Furstenberg's topological proof stands out for being, well, \textbf{topological}. As detailed in \Cref{sec:topological}, Furstenberg made this remarkable connection between topology and primes (as an undergraduate student at Yeshiva University) by defining the evenly spaced integer topology on the set of integers, where the open sets are unions of arithmetic sequences. In light of this, his proof is more about certain properties of arithmetic sequences than about topology. \cite{bib:Furstenberg} \cite{bib:proofsFromTheBook} 
+Hillel Furstenberg's topological proof stands out for being, well, \textbf{topological}. As detailed in \Cref{sec:topological}, Furstenberg made the remarkable connection between topology and primes (as an undergraduate student at Yeshiva University) by defining the evenly spaced integer topology on the set of integers, where the open sets are unions of arithmetic sequences. In light of this, his proof is more about certain properties of arithmetic sequences than about topology. \cite{bib:Furstenberg} \cite{bib:proofsFromTheBook} 
 
 The analytical proofs center on the Euler product formula,
 \[
@@ -50,7 +50,7 @@ The analytical proofs center on the Euler product formula,
 ,
 \]
 where $\mathbb{P}$ is the set of primes.
-If we forget about convergence and divergence for a moment and let $s$ take on the value $1$, then this formula establishes a relationship between the sum of the reciprocals of natural numbers and the sum of the reciprocals of primes. Using this, Euler proved (not very rigorously) that the sum of the reciprocals of the primes less than $n$ grows approximately as fast as $\ln\ln n$ as $n$ approaches infinity.
+If we forget about convergence and divergence and let $s$ take on the value $1$, then this formula establishes a relationship between the sum of the reciprocals of natural numbers and the sum of the reciprocals of primes. Using this, Euler proved (not very rigorously) that the sum of the reciprocals of the primes less than $n$ grows approximately as fast as $\ln\ln n$.
 
 In this paper, we will see an easy proof of the infinitude of primes using a rigorous version of the Euler product formula (\Cref{thm:EulerInfinitePrimes} and \Cref{cor:EulerInfinitePrimes}), examine Euler's original proof (\Cref{thm:EulerReciprocalOfPrimes}) and adapt it to rigorously prove that the sum of the reciprocals of primes diverge (\Cref{thm:reciprocalPrimeDiverge} and \Cref{cor:reciprocalPrimeDiverge}), and look at a proof for the lower bound of the sum (\Cref{thm:sumReciprocalPrimeLnLn}).
 \section{Topological Proof}
@@ -58,7 +58,7 @@ In this paper, we will see an easy proof of the infinitude of primes using a rig
 Let us now examine the topological proof of the infinitude of primes given by Hillel Furstenberg.
 First we define the \textbf{evenly spaced integer topology} on the integers:
 \begin{definition}
-  The \textbf{evenly spaced integer topology} is a topology where the open sets are (possibly empty) unions of two-way infinite arithmetic sequences $S(a,b)=\left\{ a+nb:n\in\mathbb{Z} \right\}$, where $a$ and $b$ are integers. Or equivalently, a set $O\subset\mathbb{Z}$ is open if for all $a\in O$ there exists some $b\in\mathbb{Z^+}$ with $S(a,b)\subset O$.
+  The \textbf{evenly spaced integer topology} is a topology where a set $O\subset\mathbb{Z}$ is open if for all $a\in O$ there exists some $b\in\mathbb{Z^+}$ with $S(a,b)\subset O$, where $S(a,b)$ is the two-way infinite arithmetic sequences $\left\{ a+nb:n\in\mathbb{Z} \right\}$.
   \label{def:esip}
 \end{definition}
 Before we proceed, we need to check that the evenly spaced integer topology is indeed a topology:
@@ -99,11 +99,11 @@ The evenly spaced integer topology has two interesting properties that we will n
 \begin{proof}
   Both of these properties easily follow from the definition:
   \begin{enumerate}
-    \item If the open set $O$ is not empty, we can find $a\in O$. Since $O$ is open, we can find integer $b$ such that $S(a,b)\subset O$. Since $S(a,b)$ is infinite, so is $O$.
+    \item If the open set $O$ is not empty, we can find $a\in O$. Since $O$ is open, there exists $b\in\mathbb{Z}^+$ such that $S(a,b)\subset O$. Since $S(a,b)$ is infinite, so is $O$.
     \item Note that $\displaystyle S(a,b)=\mathbb{Z}\setminus \bigcup\limits_{i=1}^{b-1}S(a+i,b)$. So $S(a,b)$ is closed as well as open.
   \end{enumerate}
 \end{proof}
-With these two properties, we are ready to prove that there are infinitely many primes:
+With these two properties, we can prove that there are infinitely many primes:
 \begin{theorem}
   If the primes are finite, then the set $\mathbb{Z}\setminus\left\{ -1,+1 \right\}$ is closed in the evenly spaced integer topology.
   \label{thm:topPrimes}
@@ -144,17 +144,16 @@ where $\mathbb{P}$ is the set of primes. However, this observation is not rigoro
 \end{lemma}
 \begin{proof}
   First, we expand $\frac{1}{1-\frac{1}{p}}$ into infinite series:
-  \begin{align*}
-    \prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}&=\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\sum_{k\ge0}\frac{1}{p^k}\\
-    .
-  \end{align*}
+  \[
+  \prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}=\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\sum_{k\ge0}\frac{1}{p^k}
+  .
+  \]
   Let the primes less than or equal to $x$ be $p_1,p_2,\dots,p_n$. So
-  \begin{align*}
-    \prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}&=\prod\limits_{j=1}^n\sum_{k\ge0}\frac{1}{p_j^k}\\
-    &=\sum\limits_{k_1,\dots,k_n\in\mathbb{N}}\frac{1}{p_1^{k_1}p_2^{k_2}\cdots p_n^{k_n}}
-    .
-  \end{align*}
-  Since every $m$ with only prime divisors $p\le x$ can be uniquely factorized into $p_1^{k_1}p_2^{k_2}\cdots p_n^{k_n}$, this is just equal to $\displaystyle\sum_{m\in I_x}\frac{1}{m}$. Thus,
+  \[
+  \prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}=\prod\limits_{j=1}^n\sum_{k\ge0}\frac{1}{p_j^k}=\sum\limits_{k_1,\dots,k_n\in\mathbb{N}}\frac{1}{p_1^{k_1}p_2^{k_2}\cdots p_n^{k_n}}
+  .
+  \]
+  Since every $m$ with only prime divisors $p\le x$ can be uniquely factorized into $p_1^{k_1}p_2^{k_2}\cdots p_n^{k_n}$, the sum on the right is equal to $\displaystyle\sum_{m\in I_x}\frac{1}{m}$. Thus,
   \[
   \sum_{m\in I_x}\frac{1}{m}=\prod\limits_{\substack{p\in\mathbb{P}\\p\le x}}\frac{1}{1-\frac{1}{p}}
   .
