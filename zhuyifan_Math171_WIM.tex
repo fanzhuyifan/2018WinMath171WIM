@@ -287,6 +287,7 @@ The result obtained by Euler was correct, even though he obtained it using dubio
 A full proof of Euler's result is beyond the scope of this paper, so we aim for less ambitious goals. We only prove a lower bound for the sum of the reciprocals of primes less than or equal to $n$ in the theorem bellow:
 
 \begin{theorem}
+  The sum of the reciprocals of primes less than or equal to $n$ is strictly bounded below by $\ln\ln(n+1)-\ln\frac{5}{3}$:
   \[
   \sum_{\substack{p\in\mathbb{P}\\p\le n}}\frac{1}{p}>\ln\ln(n+1)-\ln\frac{5}{3}
   .
@@ -298,13 +299,13 @@ A full proof of Euler's result is beyond the scope of this paper, so we aim for 
   \label{rem:sumReciprocalPrimeLnLn}
 \end{remark}
 \begin{proof}
-  First, since all positive integers can be uniquely expressed as the product of a square-free integer and a sqaure,
+  First, since all positive integers can be uniquely expressed as the product of a square-free integer and a sqaure, we must have
   \[
   \sum_{j=1}^n\frac{1}{j}\le\prod_{\substack{p\in\mathbb{P}\\p\le n}}\left( 1+\frac{1}{p} \right)\sum_{k=1}^n\frac{1}{k^2}
   ,
   \]
-  where $\displaystyle\prod_{\substack{p\in\mathbb{P}\\p\le n}}\left( 1+\frac{1}{p} \right)$ gives us the reciprocals of all square-free integers and $\displaystyle\sum_{k=1}^n\frac{1}{k^2}$ gives us all squares less than or equal to $n$.
-  We estimate the left side with
+  where $\displaystyle\prod_{\substack{p\in\mathbb{P}\\p\le n}}\left( 1+\frac{1}{p} \right)$ gives us the reciprocals of all square-free integers less than or equal to $n$ and $\displaystyle\sum_{k=1}^n\frac{1}{k^2}$ gives us all squares less than or equal to $n$.
+  We estimate the left hand side with
   \begin{align*}
     \ln(n+1)&=\int_1^{n+1}\frac{dt}{t}\\
     &=\sum_{j=1}^n\int_j^{j+1}\frac{dt}{t}\\
@@ -312,7 +313,7 @@ A full proof of Euler's result is beyond the scope of this paper, so we aim for 
     &=\sum_{j=1}^n\frac{1}{j}
     .
   \end{align*}
-  And we estimate the right side with
+  And we estimate the right hand side with
   \begin{align*}
     \sum_{k=1}^n\frac{1}{k^2}&\le1+\sum_{k=2}^n\left( \frac{1}{k-\frac{1}{2}}-\frac{1}{k+\frac{1}{2}} \right)\\
     &=1+\frac{2}{3}-\frac{1}{n+\frac{1}{2}}\\
@@ -329,7 +330,12 @@ A full proof of Euler's result is beyond the scope of this paper, so we aim for 
   \prod_{\substack{p\in\mathbb{P}\\p\le n}}\left( 1+\frac{1}{p} \right)\le \exp\left( \sum_{\substack{p\in\mathbb{P}\\p\le n}}\frac{1}{p} \right)
   .
   \]
-  Thus, 
+  Thus,
+  \[
+  \ln(n+1)\le \frac{5}{3} \exp \left( \sum_{\substack{p\in\mathbb{P}\\p\le n}}\frac{1}{p} \right)
+  .
+  \]
+  Take the logarithm of both sides, rearrage the terms, and we get
   \[
   \ln\ln(n+1)-\ln\frac{5}{3}<\sum_{\substack{p\in\mathbb{P}\\p\le n}}\frac{1}{p}
   .
